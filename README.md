@@ -263,3 +263,4 @@ Make sure to adjust the paths and filenames if necessary, and ensure that the re
 
 After following these steps, you should be able to run the script and see the order information displayed in the console or browser output. The information will include the customer's name, shipping address, items in the cart, and order summary with the subtotal, shipping cost, tax, and total cost.
 
+
