@@ -8,8 +8,6 @@ Development of the exercises for the Sourcetoad assessment. The exercises focus 
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -258,11 +256,6 @@ To use the provided code and display the order information, follow these steps:
    These variables will store the calculated values.
 
 9. Display order information: Use the provided echo statements to display the order information. Adjust the output formatting as needed.
-
-   ```php
-   echo "---------------------------------\n";
-   // Display the remaining lines of code as provided
-   ```
 
    These echo statements will print the order information, including customer details, shipping address, items in the cart, and order summary.
 
