@@ -134,61 +134,123 @@ You can modify the code according to your specific requirements, such as changin
 
 ### Exercise 2
 
-To use the provided code and achieve the desired functionality, follow these steps:
 
-1. Ensure you have the `console_format.php` file available. It contains the `ConsoleFormat` class used for printing nested key-value pairs.
+### exercise_2_list.php: ### PHP Recursive Multidimensional Array Sorting
 
-2. Include the `console_format.php` file by adding the `require "console_format.php";` line at the beginning of your PHP script.
+This PHP script provides a recursive function called `sort_recursive()` that allows you to sort a multidimensional array based on one or more keys, regardless of their level within the data structure. The function utilizes recursion to handle nested arrays and ensures that the sorting is applied at all levels.
 
-3. Prepare the data structure: Make sure you have a valid PHP file, such as 'data_structure.php', containing the nested key-value pairs you want to sort.
+### Usage
 
-4. Define the sort keys: Create an array `$sortKeys` that contains the keys by which you want to sort the data. For example:
+To use the `sort_recursive()` function, follow these steps:
 
+1. Include the required `ConsoleFormat.php` file in your project. Make sure the file is in the same directory as the script or update the `require` statement with the correct path.
+
+2. Define the data structure you want to sort in a PHP file. The structure should be in the form of an array with nested arrays containing the data. An example data structure is provided in the documentation.
+
+3. Include the data structure file using the `$filename` variable and assign it to the `$data` variable:
+   ```php
+   $filename = 'data/data_structure_lists.php';
+   $data = include $filename;
+   ```
+
+4. Validate if the loaded data is an array:
+   ```php
+   if (!is_array($data)) {
+       throw new RuntimeException("Unable to load data from file: $filename");
+   }
+   ```
+
+5. Define the sort keys array based on which you want to sort the multidimensional array. Update the `$sortKeys` variable with the desired keys. You can include multiple keys to sort by:
+   ```php
+   $sortKeys = ['last_name', 'account_id'];
+   ```
+
+6. Sort the data recursively using the `sort_recursive()` function:
+   ```php
+   sort_recursive($data, $sortKeys);
+   ```
+
+7. Print the sorted data using the `ConsoleFormat::printNestedKeyValuePairs()` method or use it in your desired application logic:
+   ```php
+   ConsoleFormat::printNestedKeyValuePairs($data, $sortKeys);
+   ```
+
+Ensure that you have included the `ConsoleFormat.php` file and have the necessary permissions to read the data file.
+
+### Recursive Sorting
+
+The `sort_recursive()` function takes two parameters: `$data` (the array to be sorted) and `$sortKeys` (the keys used for sorting the array). It recursively sorts the array based on the provided keys, regardless of their level within the data structure.
+
+During the sorting process, the function validates the input parameters, checks for the existence of the current key in the array, and throws an `InvalidArgumentException` if an invalid key is encountered.
+
+If two elements have equal values for the current key, the function applies recursive sorting to the nested arrays by calling itself on the sub-arrays. This ensures that the sorting is performed at all levels within the multidimensional array.
+
+### Example Data Structure
+
+The provided example data structure demonstrates a nested array containing guest information, bookings, and accounts. The script can handle sorting based on any key within this structure.
+
+Please make sure to update the file paths and sort keys as per your requirements.
+
+Feel free to reach out if you have any questions or face any issues with the usage of this script.
+
+### exercise_2_unique.php: ### PHP Recursive Array Sorting by Keys
+
+This PHP script demonstrates a method called `sortDataByKeys()` that allows you to sort an array of data based on a specified key. The script utilizes recursion to handle nested arrays and provides an error message if the key is not found within the data structure.
+
+### Usage
+
+To use the `sortDataByKeys()` method, follow these steps:
+
+1. Include the required `ConsoleFormat.php` file in your project. Make sure the file is in the same directory as the script or update the `require` statement with the correct path.
+
+2. Define the data structure you want to sort in a PHP file. The structure should be in the form of an array with nested arrays containing the data. An example data structure is provided in the documentation.
+
+3. Include the data structure file using the `$filename` variable and assign it to the `$data` variable:
+   ```php
+   $filename = 'data/data_structure.php';
+   $data = include $filename;
+   ```
+
+4. Define an array of sort keys, `$sortKeys`, based on which you want to sort the multidimensional array. Update the array with the desired keys. You can include multiple keys to sort by:
    ```php
    $sortKeys = ['last_name', 'booking_sasnumber', 'account_id'];
    ```
 
-   You can modify the `$sortKeys` array and add or remove keys as needed.
-
-5. Iterate over the sort keys: Use a `foreach` loop to iterate over the sort keys and sort the data by each key.
-
+5. Iterate through the sort keys and sort the data array by each key using the `sortDataByKeys()` method:
    ```php
    foreach ($sortKeys as $sortKey) {
-       // Sorting and printing code goes here
+       // Sort the data by the current sort key
+       $sorted_data = sortDataByKeys($data, $sortKey);
+
+       // If the key is not found, display an error message
+       if ($sorted_data === null) {
+           $separator = str_repeat("=", strlen($sortKey) + 19);
+           $sorted_data = "\n+{$separator}+\n ERROR: $sortKey not found \n+{$separator}+\n";
+       }
+
+       // Print the sorted data using the ConsoleFormat::printNestedKeyValuePairs() method
+       ConsoleFormat::printNestedKeyValuePairs($sorted_data, [$sortKey]);
    }
    ```
 
-6. Print the sorted data: Inside the `foreach` loop, you will sort the data using the `sortDataByKeys()` function and print the sorted data.
+Ensure that you have included the `ConsoleFormat.php` file and have the necessary permissions to read the data file.
 
-   - Print a separator line: Use the `$separator` variable to create a separator line for each sort key.
+### Recursive Sorting by Keys
 
-   - Sort the data: Call the `sortDataByKeys()` function, passing the `$data` array and the current `$sortKey`.
+The `sortDataByKeys()` method takes two parameters: `$data` (the array to be sorted) and `$sortKey` (the key to sort the data by). It recursively searches for the specified key within the nested arrays and sorts the array based on that key.
 
-   - Handle key not found: If the key is not found in the data, assign an error message to `$sorted_data`.
+The method uses a recursive function, `$checkKeyExists`, to check if the key exists within the data structure. If the key is not found, the method returns `null`, and an error message is displayed.
 
-   - Print the sorted data: Use the `ConsoleFormat::printNestedKeyValuePairs()` method to print the sorted data using the `ConsoleFormat` class from `console_format.php`.
+For sorting, the method utilizes the `usort()` function and a nested function, `$getNestedValue()`, to retrieve the values of the specified key at different levels within the array. It compares the values and sorts the data accordingly.
 
-     ```php
-     ConsoleFormat::printNestedKeyValuePairs($sorted_data, true, '', $sortKey);
-     ```
+### Example Data Structure
 
-7. Exception handling: Wrap the code inside a try-catch block to handle any exceptions or errors that may occur during the execution.
+The provided example data structure demonstrates a nested array containing guest information, bookings, and accounts. The script can handle sorting based on any key within this structure.
 
-   - In the catch block, you can display an error message if an exception or error occurs.
+Please make sure to update the file paths and sort keys as per your requirements.
 
-   ```php
-   try {
-       // Code goes here
-   } catch (Exception $e) {
-       echo "An error occurred: " . $e->getMessage();
-   } catch (Error $e) {
-       echo "An error occurred: " . $e->getMessage();
-   }
-   ```
+Feel free to reach out if you have any questions or encounter any issues with the usage of this script.
 
-Make sure to adjust the paths and filenames as necessary, and ensure that the required files and data structure are available.
-
-After following these steps, you should be able to run the script and see the sorted data printed for each sort key, along with error messages if a key is not found or any errors occur during execution.
 
 ### Exercise 3
 
