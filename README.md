@@ -78,9 +78,9 @@ To install and set up a PHP project with a console-based PHP command, you can fo
    // Rest of your code
    ```
 
-## Usage
+# Usage
 
-### Exercise 1
+## Exercise 1
 
 The provided code is a PHP function `printFormattedData()` that recursively prints the formatted nested key-value pairs in an array. Here's an explanation of how to use the project and how the code works:
 
@@ -132,10 +132,10 @@ Important considerations for using the code:
 
 You can modify the code according to your specific requirements, such as changing the output format, customizing the colors, or handling exceptions differently.
 
-### Exercise 2
+## Exercise 2
 
 
-### exercise_2_list.php: ### PHP Recursive Multidimensional Array Sorting
+## exercise_2_list.php: PHP Recursive Multidimensional Array Sorting
 
 This PHP script provides a recursive function called `sort_recursive()` that allows you to sort a multidimensional array based on one or more keys, regardless of their level within the data structure. The function utilizes recursion to handle nested arrays and ensures that the sorting is applied at all levels.
 
@@ -193,7 +193,7 @@ Please make sure to update the file paths and sort keys as per your requirements
 
 Feel free to reach out if you have any questions or face any issues with the usage of this script.
 
-### exercise_2_unique.php: ### PHP Recursive Array Sorting by Keys
+## exercise_2_unique.php: PHP Recursive Array Sorting by Keys
 
 This PHP script demonstrates a method called `sortDataByKeys()` that allows you to sort an array of data based on a specified key. The script utilizes recursion to handle nested arrays and provides an error message if the key is not found within the data structure.
 
