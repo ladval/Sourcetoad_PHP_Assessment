@@ -1,5 +1,5 @@
 <?php
-require_once 'exercise_3.php';
+require_once '..\exercise_3.php';
 
 // Create item instances
 $item1 = new Item(1, 'Item 1', 2, 10.99);
