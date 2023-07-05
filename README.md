@@ -252,7 +252,7 @@ Please make sure to update the file paths and sort keys as per your requirements
 Feel free to reach out if you have any questions or encounter any issues with the usage of this script.
 
 
-### Exercise 3
+## Exercise 3
 
 To use the provided code and display the order information, follow these steps:
 
