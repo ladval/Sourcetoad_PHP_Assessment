@@ -1,5 +1,5 @@
 <?php
-require "console_format.php";
+require "ConsoleFormat.php";
 
 /**
  * Sorts an array of data by the specified keys.
@@ -66,7 +66,7 @@ function sortDataByKeys(array &$data, $sortKey)
 
 try {
     //Access to the Data structure
-    $filename = 'data_structure.php';
+    $filename = 'data/data_structure.php';
     $data = include $filename;
 
     $sortKeys = ['last_name', 'booking_sasnumber', 'account_id'];
@@ -76,6 +76,7 @@ try {
         echo "\n+{$separator}+\n  Sorted by $sortKey \n+{$separator}+\n";
 
         // Sort the data by the current sort key
+
         $sorted_data = sortDataByKeys($data, $sortKey);
 
         // If the key is not found, display an error message
@@ -84,7 +85,7 @@ try {
         }
 
         // Print the sorted data using the console_format.php library
-        ConsoleFormat::printNestedKeyValuePairs($sorted_data, true, '', $sortKey);
+        ConsoleFormat::printNestedKeyValuePairs($sorted_data, [$sortKey]);
     }
 } catch (Exception $e) {
     echo "An error occurred: " . $e->getMessage();
