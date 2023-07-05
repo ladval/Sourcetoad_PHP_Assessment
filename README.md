@@ -137,6 +137,10 @@ You can modify the code according to your specific requirements, such as changin
 
 ## exercise_2_list.php: PHP Recursive Multidimensional Array Sorting
 
+
+![alt text](https://github.com/ladval/Sourcetoad_PHP_Assessment/blob/main/img/Multisorting.jpg?raw=true)
+
+
 This PHP script provides a recursive function called `sort_recursive()` that allows you to sort a multidimensional array based on one or more keys, regardless of their level within the data structure. The function utilizes recursion to handle nested arrays and ensures that the sorting is applied at all levels.
 
 ### Usage
@@ -194,6 +198,8 @@ Please make sure to update the file paths and sort keys as per your requirements
 Feel free to reach out if you have any questions or face any issues with the usage of this script.
 
 ## exercise_2_unique.php: PHP Recursive Array Sorting by Keys
+
+![alt text](https://github.com/ladval/Sourcetoad_PHP_Assessment/blob/main/img/UniqueSorting.jpg?raw=true)
 
 This PHP script demonstrates a method called `sortDataByKeys()` that allows you to sort an array of data based on a specified key. The script utilizes recursion to handle nested arrays and provides an error message if the key is not found within the data structure.
 
